@@ -1,0 +1,265 @@
+@import 'fonts.sass';
+@import 'vars.sass';
+@import 'mixins';
+
+html,
+body {
+	background: $background-color;
+	width: 100%;
+	min-height: 100vh;
+	padding: 0;
+	margin: 0;
+}
+body {
+	font-family: $font-family;
+	font-size: 16px;
+	line-height: 1.3em;
+	background-image: url(../img/background-bg.svg);
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-size: cover;
+	@media screen and (min-width:1200px) {
+		background-position: 0 0;
+	}
+}
+img {
+	max-width: 100%;
+}
+h1 {
+	font-family: $font-family;
+	font-size: 44px;
+	line-height: 1.3em;
+	font-weight: 500;
+	padding: 0;
+	margin: 0;
+}
+h3 {
+	font-family: $font-family;
+	font-size: 20px;
+	line-height: 1.3em;
+	font-weight: 500;
+	padding: 0;
+	margin: 0;
+}
+.btn {
+	display: block;
+	font-family: $font-family;
+	font-size: 16px;
+	line-height: 1;
+	font-weight: 500;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 100px;
+	padding: 17px;
+	cursor: pointer;
+	color: $white-color;
+	background: $orange-color;
+	@media screen and (min-width:1200px) {
+		padding: 17px 30px;
+		display: inline-block;
+	}
+	&:hover {
+		opacity: 0.95;
+	}
+}
+.mobile-hidden {
+	display: none;
+	@media screen and (min-width:1200px) {
+		display: block;
+	}
+}
+.row {
+	@media screen and (min-width:1200px) {
+		display: flex;
+	}
+}
+.container {
+	min-width: 280px;
+	max-width: 1120px;
+	padding: 0 20px;
+	margin: 0 auto;
+	@media screen and (min-width:1200px) {
+		padding: 0 30px;
+	}
+}
+.header {
+	padding: 60px 0 45px;
+	&__h1 {
+		color: $white-color;
+	}
+}
+.content {
+	padding-top: 30px;
+	@media screen and (min-width:1200px) {
+		padding-top: 0;
+	}
+}
+.leftblock {
+	color: $white-color;
+	font-weight: 500;
+	@media screen and (min-width:1200px) {
+		width: 23%;
+	}
+	&__number {
+		font-size: 36px;
+		margin-right: 2px;
+	}
+	&__description {
+		margin: 0 0 20px 0;
+		@media screen and (min-width:1200px) {
+			margin: 0 0 30px 0;
+		}
+		&_left {
+			padding-left: 20px;
+		}
+	}
+	&__mobile {
+		display: flex;
+		@media screen and (min-width:1200px) {
+			display: block;
+		}
+		&-left {
+			margin-right: 20px;
+			@media screen and (min-width:1200px) {
+				display: none;
+			}
+		}
+	}
+}
+.middleblock {
+	@media screen and (min-width:1200px) {
+		width: 47%;
+	}
+}
+.bubble {
+	background: $white-color;
+	box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.1);
+	border-radius: 24px;
+	position: relative;
+	font-weight: 500;
+	min-height: 220px;
+	@media screen and (min-width:1200px) {
+		margin: 0 37px 0 10px;
+		min-height: 250px;
+		border-radius: 34px;
+	}
+	&::after {
+		display: table;
+		clear: both;
+	}
+	&__tail {
+		@include arrow(down, 0px, 18px, 18px, $white-color);
+		position: absolute;
+		right: auto;
+		left: 50px;
+		bottom: -18px;
+		@media screen and (min-width:1200px) {
+			@include arrow(down, 18px, 0px, 18px, $white-color);
+			left: auto;
+			right: 50px;
+		}
+	}
+	&__img {
+		float: right;
+		margin: -10px -10px 10px 20px;
+	}
+	&__ttl {
+		letter-spacing: -0.5px;
+		color: $purple-color;
+		margin: 5px 0 22px;
+		animation: bubbleAnimation 2s infinite;
+	}
+	&__name {
+		display: flex;
+		align-items: center;
+		animation: bubbleAnimation 2s infinite;
+		&-txt {
+			padding-left: 10px;
+			letter-spacing: -0.3px;
+			color: $blue-color;
+			font-weight: 300;
+			@media screen and (min-width:1200px) {
+				color: $gray-color;
+				font-weight: 500;
+			}
+		}
+	}
+	&__txt {
+		font-weight: 300;
+		line-height: 1.4em;
+		margin: 8px 0 0 0;
+		color: $gray-color;
+		animation: bubbleAnimation 2s infinite;
+		@media screen and (min-width:1200px) {
+			margin: 20px 0 0 0;
+		}
+	}
+	&__slide {
+		position: absolute;
+		top: 0;
+		width: calc(100% - 56px);
+		padding: 15px 18px;
+		transition: opacity 0.2s ease-out;
+		opacity: 0;
+		@media screen and (min-width:1200px) {
+			padding: 28px 28px 32px 28px;
+		}
+		&_active {
+			opacity: 1;
+		}
+	}
+}
+.rightblock {
+	color: $white-color;
+	font-weight: 500;
+	position: relative;
+	@media screen and (min-width:1200px) {
+		width: 30%;
+	}
+	&__info {
+		margin: 0 0 20px 0;
+		@media screen and (min-width:1200px) {
+			margin: 20px 0;
+		}
+	}
+	&__round-pic1 {
+		margin: 20px 0 0 0;
+		@media screen and (min-width:1200px) {
+			position: absolute;
+			top: -150px;
+			left: -15px;
+			margin: 0;
+		}
+	}
+	&__round-pic2 {
+		position: absolute;
+		top: -175px;
+		right: 0;
+	}
+	&__round-pic3 {
+		margin: 35px 0 0 15px;
+	}
+}
+/* keyframes для анимации бабла */
+@keyframes bubbleAnimation {
+	0%, 60%, 75%, 90%, to {
+		animation-timing-function: cubic-bezier(.215, .61, .355, 1)
+	}
+	0% {
+		opacity: 0;
+		transform: translate3d(10px, 0, 0)
+	}
+	60% {
+		opacity: 1;
+		transform: translate3d(-5px, 0, 0)
+	}
+	75% {
+		transform: translate3d(10px, 0, 0)
+	}
+	90% {
+		transform: translate3d(-5px, 0, 0)
+	}
+	to {
+		transform: translateZ(0)
+	}
+}
